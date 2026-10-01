@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealDB Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .meal-card { cursor: pointer; transition: transform 0.2s; }
+        .meal-card:hover { transform: scale(1.02); }
+        .favorite-btn { position: absolute; top: 10px; right: 10px; z-index: 10; }
+        #loading { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#" id="homeLink">
+                🍽 Meal Explorer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="randomMealBtn">Випадкова страва</a>
+                    </li>cd C:\Users\Home\Desktop\progekt
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="favoritesLink">Обрані ❤️</a>
+                    </li>
+                </ul>
+                <form class="d-flex" id="searchForm">
+                    <input
+                        id="searchInput"
+                        class="form-control me-2"
+                        type="search"
+                        placeholder="Пошук страви">
+                    <button class="btn btn-warning" type="submit">
+                        Знайти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h1 id="pageTitle">Каталог рецептів</h1>
+            <p class="lead" id="pageSubtitle">
+                Знайди улюблену страву та переглянь рецепт
+            </p>
+        </div>
+    </section>
+
+
+    <section class="container py-4" id="categoriesSection">
+        <h2 class="mb-4">Категорії</h2>
+        <div class="row g-3" id="categoriesContainer">
+        </div>
+    </section>
+
+    <!-- Meals -->
+    <section class="container pb-5">
+        <h2 class="mb-4" id="mealsTitle">Популярні страви</h2>
+        <h2 class="mb-4">Популярні страви v2</h2>
+        <div class="row g-4" id="mealsContainer">
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="mealModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="modalContent">
+                <!-- Modal content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Завантаження...</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./src/app.js"></script>
+</body>
+</html>
